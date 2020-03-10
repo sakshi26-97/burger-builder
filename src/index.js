@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 
 import './index.css';
@@ -10,9 +10,24 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import reducer from './store/reducer'
+import burgerBuilderReducer from './store/reducers/burgerBuilder'
+import orderReducer from './store/reducers/order'
 
-const store = createStore(reducer)
+/* for async code */
+import thunk from 'redux-thunk';
+
+/* for redux dev-tools */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const rootReducer = combineReducers({
+  burgerBuilderReducer: burgerBuilderReducer,
+  orderReducer: orderReducer
+})
+
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+
+
 
 const app = (
   <Provider store={store}>
