@@ -7,7 +7,8 @@ const navigationItems = props => {
     <ul className={classes.NavigationItems}>
       {/* for boolean value only defining key assumes it is true like in active */}
       <NavigationItem link='/' exact>Burger Builder</NavigationItem>
-      <NavigationItem link='/orders'>Orders</NavigationItem>
+      {props.isAuthenticated ? <NavigationItem link="/orders">Orders</NavigationItem> : null}
+      {!props.isAuthenticated ? <NavigationItem link='/auth'>Authentication</NavigationItem> : <NavigationItem link='/logout'>Logout</NavigationItem>}
     </ul>
   )
 }

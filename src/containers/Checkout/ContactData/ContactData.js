@@ -101,6 +101,7 @@ class ContactData extends Component {
 
   orderHandler = (event) => {
 
+    // prevent loading of page
     event.preventDefault();
 
     const formData = {};
@@ -111,10 +112,11 @@ class ContactData extends Component {
     const order = {
       ingredients: this.props.ings,
       price: this.props.price,
-      orderData: formData
+      orderData: formData,
+      userId: this.props.userId
     }
 
-    this.props.onOrderPurchase(order)
+    this.props.onOrderBurger(order, this.props.token)
 
   }
 
@@ -235,13 +237,15 @@ const mapStateToProps = state => {
   return {
     ings: state.burgerBuilderReducer.ingredients,
     price: state.burgerBuilderReducer.totalPrice,
-    loading: state.orderReducer.loading
+    loading: state.orderReducer.loading,
+    userId: state.authReducer.userId,
+    token: state.authReducer.token
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onOrderPurchase: (orderData) => dispatch(orderActionCreators.purchaseBurger(orderData))
+    onOrderBurger: (orderData, token) => dispatch(orderActionCreators.purchaseBurger(orderData, token))
   }
 
 }
