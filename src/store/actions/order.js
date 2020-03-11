@@ -10,8 +10,6 @@ export const purchaseInit = () => {
 };
 
 export const purchaseBurger = (orderData, token) => {
-  console.log('12345', token);
-
   return dispatch => {
     dispatch(purchaseBurgerStart())
     axios.post('/orders.json?auth=' + token, orderData)
@@ -42,8 +40,6 @@ const purchaseBurgerFail = (error) => {
 }
 
 export const fetchOrders = (token, userId) => {
-  console.log('123456', token, '567890-', userId);
-
   return dispatch => {
     dispatch(fetchOrdersStart())
     const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
