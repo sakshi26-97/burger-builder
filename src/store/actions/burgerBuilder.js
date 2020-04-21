@@ -18,15 +18,18 @@ export const removeIngredient = (ingredientName) => {
 
 
 export const initIngredients = () => {
-  return dispatch => {
-    axios.get('/ingredients.json')
-      .then(response => dispatch(setIngredients(response.data)))
-      .catch(error => dispatch(fetchIngredientsFailed()))
-  }
+  // return dispatch => {
+  //   axios.get('/ingredients.json')
+  //     .then(response => dispatch(setIngredients(response.data)))
+  //     .catch(error => dispatch(fetchIngredientsFailed()))
+  // }
 
+  return {
+    type: actionTypes.INIT_INGREDIENTS
+  }
 }
 
-const setIngredients = (ingredients) => {
+export const setIngredients = (ingredients) => {
   return {
     type: actionTypes.SET_INGREDIENTS,
     ingredients: ingredients
@@ -34,7 +37,7 @@ const setIngredients = (ingredients) => {
   }
 }
 
-const fetchIngredientsFailed = () => {
+export const fetchIngredientsFailed = () => {
   return {
     type: actionTypes.FETCH_INGREDIENTS_FAILED,
   }
