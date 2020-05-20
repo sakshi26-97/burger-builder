@@ -5,9 +5,6 @@ import PropTypes from 'prop-types'
 
 
 const burger = (props) => {
-  console.log(props, '67890');
-
-
   // Array() -- Array constructor, create array objects 
 
   /* array.reduce syntax */

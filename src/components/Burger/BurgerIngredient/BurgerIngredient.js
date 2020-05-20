@@ -4,49 +4,50 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classes from './BurgerIngredient.css'
 
-export default class BurgerIngredient extends Component {
+const burgerIngredient = props => {
 
   //ren
-  render () {
 
-    let ingredient = null;
 
-    switch (this.props.types) {
-      case ('bread-bottom'):
-        ingredient = <div className={classes.BreadBottom}></div>;
-        break;
+  let ingredient = null;
 
-      case ('bread-top'):
-        ingredient = (<div className={classes.BreadTop}>
-          <div className={classes.Seeds1}></div>
-          <div className={classes.Seeds2}></div>
-        </div>);
-        break;
+  switch (props.types) {
+    case ('bread-bottom'):
+      ingredient = <div className={classes.BreadBottom}></div>;
+      break;
 
-      case ('meat'):
-        ingredient = <div className={classes.Meat}></div>;
-        break;
+    case ('bread-top'):
+      ingredient = (<div className={classes.BreadTop}>
+        <div className={classes.Seeds1}></div>
+        <div className={classes.Seeds2}></div>
+      </div>);
+      break;
 
-      case ('cheese'):
-        ingredient = <div className={classes.Cheese}></div>;
-        break;
+    case ('meat'):
+      ingredient = <div className={classes.Meat}></div>;
+      break;
 
-      case ('salad'):
-        ingredient = <div className={classes.Salad}></div>;
-        break;
+    case ('cheese'):
+      ingredient = <div className={classes.Cheese}></div>;
+      break;
 
-      case ('bacon'):
-        ingredient = <div className={classes.Bacon}></div>;
-        break;
+    case ('salad'):
+      ingredient = <div className={classes.Salad}></div>;
+      break;
 
-      default:
-        ingredient = null;
-    }
-    return ingredient
+    case ('bacon'):
+      ingredient = <div className={classes.Bacon}></div>;
+      break;
+
+    default:
+      ingredient = null;
   }
+  return ingredient
 }
+
 
 // rpt
-BurgerIngredient.propTypes = {
+burgerIngredient.propTypes = {
   types: PropTypes.string.isRequired, //ptsr
 }
+export default burgerIngredient;

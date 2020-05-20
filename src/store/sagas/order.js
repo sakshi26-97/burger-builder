@@ -20,8 +20,6 @@ export function* fetchOrdersSaga (action) {
 
   try {
     const response = yield axios.get('/orders.json' + queryParams);
-    console.log(response, '--');
-
     const fetchedOrders = [];
     for (let key in response.data) {
       fetchedOrders.push({
