@@ -11,10 +11,10 @@ export const auth = (email, password, isSignUp) => {
   //     password: password,
   //     returnSecureToken: true
   //   }
-  //   let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD2bvAmIX5Z7q7ymOTcQ-5ONlGlc074C3A'
+  //   let url = ''
 
   //   if (!isSignUp) {
-  //     url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD2bvAmIX5Z7q7ymOTcQ-5ONlGlc074C3A'
+  //     url = ''
   //   }
 
   //   axios.post(url, authData)
