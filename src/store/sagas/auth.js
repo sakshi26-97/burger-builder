@@ -32,10 +32,10 @@ export function* authSaga (action) {
     password: action.password,
     returnSecureToken: true
   }
-  let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD2bvAmIX5Z7q7ymOTcQ-5ONlGlc074C3A'
+  let url = ''
 
   if (!action.isSignUp) {
-    url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD2bvAmIX5Z7q7ymOTcQ-5ONlGlc074C3A'
+    url = ''
   }
 
   try {
